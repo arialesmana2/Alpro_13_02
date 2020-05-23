@@ -10,29 +10,33 @@ package ch07;
  * @author asus
  */
 public class r11_b2_5a_bSort {
-   int [] aar = new int [] {82, 12, 41, 38, 19, 26, 9, 48, 20, 55, 8, 32, 3};
-    int temp=0;
-    
-    public void cetak(){
-        System.out.println("Array yang diinputkan = ");
-        for(int a = 0; a < aar.length; a++){
-            System.out.println(aar [a]+", ");
+  public static void main(String[] args) {
+        int[] bil = {82, 12, 41, 38, 19, 26, 9, 48, 20, 55, 8, 32, 3};
+
+        System.out.print("Nilai Array Sebelum Diurutkan = ");
+        for (int x:bil){
+            System.out.print(x+" ");
         }
-        for(int a = 0; a < aar.length; a++){
-            for( int b = 0; b < aar.length; b++){
-                if (aar[a] < aar[b]){
-                    temp = aar[a];
-                    aar[a] = aar[b];
-                    aar[b] = temp;
-                }
+        System.out.println();
+        new r11_b2_5a_bSort(bil);
+
+        System.out.print("Nilai Array Setelah Diurutkan = ");
+        for(int x:bil){
+            System.out.print(x+" ");
+        }
+    }
+   r11_b2_5a_bSort(int[] bil) {
+        int w = bil.length;
+
+        for (int y = 1 ; y < w ; y++) {
+            int key = bil [y];
+            int x=y-1;
+
+            while ((x>-1)&&(bil[x]>key)){
+                bil[x+1] = bil[x];
+                x--;
             }
-            
+            bil[x+1]=key;
         }
-        System.out.println();
-        System.out.println("Urutan Array setelah di blockSort ");
-        for (int a = 0; a < aar.length; a++){
-            System.out.println(aar[a] +", ");
-        }
-        System.out.println();
     }
 }

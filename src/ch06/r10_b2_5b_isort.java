@@ -10,23 +10,31 @@ package ch06;
  * @author asus
  */
 public class r10_b2_5b_isort {
-    void isort(int aar []){
-        int a = aar.length;
-        for(int i = 1; i < a; i++){
-        int key = aar[i];
-        int j = i - 1;
-        
-        while (j >= 0 && aar [j] > key){
-            aar [j + 1] = aar[j];
-            j = j- 1;
-        }
-        aar[j + 1] = key;
+   public static void main(String args[]) {
+        int bil[] = {82, 12, 41, 38, 19, 26, 9, 48, 20, 55, 8, 32, 3};
+        System.out.println("Urutan Array Dari Yang Terkecil ");
+        r10_b2_5b_isort in = new r10_b2_5b_isort();
+        in.sort(bil);
+        printArray(bil);
+    }
+    private  void sort(int bil[]) {
+        int i = bil.length;
+        for (int x = 1; x < i; ++x) {
+            int xy = bil[x];
+            int y = x - 1;
+
+            while (y >= 0 && bil[y] > xy) {
+                bil[y + 1] = bil[y];
+                y = y - 1;
+            }
+            bil[y + 1] = xy;
         }
     }
-    public static void printArray(int aar[]){
-        int a = aar.length;
-        for(int i = 0; i < a; i++)
-            System.out.println(aar[i]+", ");
+    private static void printArray(int bil[]) {
+        int i = bil.length;
+        for (int x = 0; x < i; ++x)
+            System.out.print(bil[x] + " ");
+
         System.out.println();
     }
 }
